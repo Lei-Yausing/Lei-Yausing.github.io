@@ -1,0 +1,21 @@
+name: edit-site
+on:
+  push:
+    paths:
+      - ".github/workflows/edit.yml"
+permissions:
+  contents: write
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove MSc Student line
+        run: |
+          sed -i '/<p class="author__bio">MSc Student<\/p>/d' index.html
+          git rm -q .github/workflows/edit.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Remove MSc Student from sidebar"
+          git push
