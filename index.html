@@ -14,11 +14,18 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
       .page__content ul li { margin-bottom: 0.2em; }
-      .paper-box-text p { margin-bottom: 0.4em; }
-      .paper-box-text ul { margin-top: 0.4em; }
       .note { color: #6f777d; font-size: 0.85em; }
       .hl { color: #c0392b; font-weight: 700; font-size: 0.9em; }
-      .paper-box-image img { padding-top: 1.9em; background: #fff; }
+      .pub { border-bottom: 1px #efefef solid; padding: 1.4em 0; }
+      .pub p { margin-bottom: 0.4em; }
+      .pub ul { margin-top: 0.4em; margin-bottom: 0.4em; }
+      .pub-title { font-size: 1.02em; }
+      .venue { display: inline-block; background: #00369f; color: #fff; font-size: 0.72em; padding: 0.05em 0.6em; margin-right: 0.6em; vertical-align: 0.1em; }
+      .pub-fig summary { cursor: pointer; color: #00369f; font-size: 0.85em; font-weight: 600; user-select: none; }
+      .pub-fig summary:hover { text-decoration: underline; }
+      .pub-fig .hide, .pub-fig[open] .show { display: none; }
+      .pub-fig[open] .hide { display: inline; }
+      .pub-fig img { display: block; width: 100%; max-width: 720px; margin-top: 0.8em; box-shadow: 3px 3px 6px #888; background: #fff; }
       .hobbies { margin-top: 2.5em; }
       .site-credit { color: #9aa0a6; font-size: 0.75em; margin-top: 3em; }
     </style>
@@ -35,7 +42,6 @@
               <li class="masthead__menu-item"><a href="#education">Education</a></li>
               <li class="masthead__menu-item"><a href="#experience">Experience</a></li>
               <li class="masthead__menu-item"><a href="#publications">Publications</a></li>
-              <li class="masthead__menu-item"><a href="#projects">Projects</a></li>
             </ul>
             <ul class="hidden-links hidden"></ul>
           </nav>
@@ -87,9 +93,8 @@
 <h1 id="publications">Publications</h1>
 <p class="note">* equal contribution &nbsp;&nbsp; &sect; project lead &nbsp;&nbsp; &dagger; corresponding author</p>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Technical Report</div><img src="images/arsi_overview.webp" alt="A-RSI overview" width="100%"></div></div>
-<div class="paper-box-text">
-<p><a href="https://seerray-lab.github.io/A-RSI/">A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</a></p>
+<div class="pub">
+<p class="pub-title"><span class="venue">Technical Report</span><a href="https://seerray-lab.github.io/A-RSI/">A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</a></p>
 <p>Yu Liu*, <strong>Youxing Li*&sect;</strong>, Yuedong Tan*, Zhiwei Yang, Zihan Su, Hanqi Feng, Shaojie Zhang, Libin Liao, Zihao Wan, Chenxu Wu, Cong Cao&dagger;, Fangfang Yuan, Yanbing Liu, Ziheng Chen, Pei Fu&dagger;, Radu Timofte, Zongwei Wu, Nicu Sebe, Barnabas Poczos, Jian Luan</p>
 <p><a href="https://seerray-lab.github.io/A-RSI/"><strong>Project</strong></a> | <a href="https://arxiv.org/abs/2610.38568"><strong>arXiv</strong></a> | <a href="https://huggingface.co/papers/2610.38568"><strong>Hugging Face</strong></a> &nbsp;<span class="hl">#2 Paper of the Day</span></p>
 <ul>
@@ -97,24 +102,55 @@
   <li>Generates multimodal tasks from model-written programs with computed answers, requiring no external data.</li>
   <li>Improves Qwen3-VL-8B on all 11 benchmarks, from 57.77 to 61.05 on average.</li>
 </ul>
-</div>
+<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/arsi_overview.webp" alt="A-RSI overview" loading="lazy"></details>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Under Review</div><img src="images/fig_seer.webp" alt="SEER routing" width="100%"></div></div>
-<div class="paper-box-text">
-<p><strong>Structural Entropy Guided Capability-Aware Expert Routing</strong></p>
-<p>Zhiwei Yang, Yu Liu, <strong>Youxing Li</strong>, Yuedong Tan, Haimei Qin, Shaojie Zhang, Lei Jiang, Yanbing Liu, Pei Fu</p>
+<div class="pub">
+<p class="pub-title"><span class="venue">Under Review</span><strong>Structural Entropy Guided Capability-Aware Expert Routing</strong></p>
+<p>Zhiwei Yang*, Yu Liu*, <strong>Youxing Li*</strong>, Yuedong Tan, Haimei Qin, Shaojie Zhang, Lei Jiang, Yanbing Liu, Pei Fu</p>
 <ul>
   <li>Routes each query to one LLM from a heterogeneous expert pool before any expert is called.</li>
   <li>Builds candidate sets by partitioning a query&ndash;expert outcome graph with structural entropy.</li>
   <li>Trains a capability planner and a route selector with GRPO; evaluated on 20 benchmarks.</li>
 </ul>
-</div>
+<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_seer.webp" alt="SEER routing" loading="lazy"></details>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2026</div><img src="images/fig_pixeltriage.webp" alt="PixelTriage example and accuracy-cost results" width="100%"></div></div>
-<div class="paper-box-text">
-<p><a href="https://arxiv.org/abs/2610.07984">Decide Before You Look: Learning Which Retrieved Memories Deserve Pixels</a></p>
+<div class="pub">
+<p class="pub-title"><span class="venue">Under Review</span><strong>Beyond Task Success: A Tool-Use Agent Efficiency Benchmark</strong></p>
+<p>Yu Liu, Yuedong Tan, Zhilin Liu, Zhiwei Yang, Hanqi Feng, Wenxiao Zhang, Zheyuan Deng, Kunyu Peng, Radu Timofte, <strong>Youxing Li</strong>, et al.</p>
+<ul>
+  <li>Evaluates tool-use agents on 191 multimodal long-horizon tasks, scoring final correctness together with evidence acquisition.</li>
+  <li>Annotates each task with an evidence graph whose executable predicates recognize evidence across alternative tool sequences.</li>
+  <li>Runs 27 frontier models through one shared harness and tool environment, separating capability, family tool preferences, and execution organization.</li>
+</ul>
+<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_taebench.webp" alt="TAE-Bench: same answer, different efficiency" loading="lazy"></details>
+</div>
+
+<div class="pub">
+<p class="pub-title"><span class="venue">Under Review</span><strong>GCorP: Global Correlation Pooling</strong></p>
+<p><strong>Youxing Li</strong>, Zihan Su, Nicu Sebe, Ziheng Chen&dagger;</p>
+<ul>
+  <li>Pools scale-invariant correlation matrices with flat and hyperbolic geometry-specific heads.</li>
+  <li>Shows that flat correlation MLR trains exactly with Euclidean SGD, without tangent-space trivialization.</li>
+  <li>Validates on image classification, EEG foundation models, and FD-loss post-training of image generators.</li>
+</ul>
+<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_gcorp_gen.webp" alt="GCorP in generative post-training" loading="lazy"></details>
+</div>
+
+<div class="pub">
+<p class="pub-title"><span class="venue">Under Review</span><strong>Riemannian Sliced-Wasserstein Distances on Correlation Matrices</strong></p>
+<p><strong>Youxing Li</strong>, Nicu Sebe, Ziheng Chen&dagger;</p>
+<ul>
+  <li>Introduces sliced-Wasserstein regularization on full-rank correlation matrices (CorSW).</li>
+  <li>Covers four flat pullback metrics and a hyperbolic PHCM branch with Busemann and geodesic slices.</li>
+  <li>Improves downstream performance across datasets and architectures at O(d<sup>2</sup>) projection cost.</li>
+</ul>
+<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_rsw.webp" alt="CorSW" loading="lazy"></details>
+</div>
+
+<div class="pub">
+<p class="pub-title"><span class="venue">arXiv 2026</span><a href="https://arxiv.org/abs/2610.07984">Decide Before You Look: Learning Which Retrieved Memories Deserve Pixels</a></p>
 <p><strong>Youxing Li</strong></p>
 <p><a href="https://arxiv.org/abs/2610.07984"><strong>arXiv</strong></a></p>
 <ul>
@@ -122,45 +158,19 @@
   <li>Trains a small triage model on synthetic episodes labeled by a frozen 27B model.</li>
   <li>Cuts visual tokens to 11&ndash;23% without accuracy loss on three benchmarks; transfers to a 397B answering model.</li>
 </ul>
-</div>
+<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_pixeltriage.webp" alt="PixelTriage example and accuracy-cost results" loading="lazy"></details>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Under Review</div><img src="images/fig_gcorp_gen.webp" alt="GCorP in generative post-training" width="100%"></div></div>
-<div class="paper-box-text">
-<p><strong>GCorP: Global Correlation Pooling</strong></p>
-<p><strong>Youxing Li</strong>, Zihan Su, Nicu Sebe, Ziheng Chen&dagger;</p>
+<div class="pub">
+<p class="pub-title"><span class="venue">Survey</span><a href="https://arxiv.org/abs/2604.02029">The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</a></p>
+<p>Xinlei Yu, Zhangquan Chen, Yongbo He, Tianyu Fu, Guanting Dong, &hellip;, <strong>Youxing Li</strong>, &hellip;, Yu-Gang Jiang, Shuicheng Yan</p>
+<p><a href="https://arxiv.org/abs/2604.02029"><strong>arXiv</strong></a></p>
 <ul>
-  <li>Pools scale-invariant correlation matrices with flat and hyperbolic geometry-specific heads.</li>
-  <li>Shows that flat correlation MLR trains exactly with Euclidean SGD, without tangent-space trivialization.</li>
-  <li>Validates on image classification, EEG foundation models, and FD-loss post-training of image generators.</li>
+  <li>Surveys latent space as a native substrate for language-based models, beyond explicit token-level generation.</li>
+  <li>Organizes the field into five perspectives: Foundation, Evolution, Mechanism, Ability, and Outlook.</li>
+  <li>Reviews four mechanisms (architecture, representation, computation, optimization) and abilities from reasoning and planning to memory, collaboration, and embodiment.</li>
 </ul>
-</div>
-</div>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Under Review</div><img src="images/fig_rsw.webp" alt="CorSW" width="100%"></div></div>
-<div class="paper-box-text">
-<p><strong>Riemannian Sliced-Wasserstein Distances on Correlation Matrices</strong></p>
-<p><strong>Youxing Li</strong>, Nicu Sebe, Ziheng Chen&dagger;</p>
-<ul>
-  <li>Introduces sliced-Wasserstein regularization on full-rank correlation matrices (CorSW).</li>
-  <li>Covers four flat pullback metrics and a hyperbolic PHCM branch with Busemann and geodesic slices.</li>
-  <li>Improves downstream performance across datasets and architectures at O(d<sup>2</sup>) projection cost.</li>
-</ul>
-</div>
-</div>
-
-<h1 id="projects">Projects</h1>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Benchmark</div><img src="images/fig_teb.svg" alt="ToolsBench overview" width="100%"></div></div>
-<div class="paper-box-text">
-<p><strong>ToolsBench: Correctness and Efficiency of Tool Use</strong></p>
-<p>Contributor</p>
-<ul>
-  <li>Benchmarks LLM agents on multi-step tool-use tasks over documents, tables, images, and audio in isolated containers.</li>
-  <li>Scores final-answer correctness together with the number of tool calls spent.</li>
-  <li>Audits every call against a step-level evidence graph to measure redundancy.</li>
-</ul>
-</div>
+<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_latent_survey.webp" alt="Outline of the latent space survey" loading="lazy" style="max-width: 480px;"></details>
 </div>
 
 <p class="hobbies">Outside research, I love hitting the gym 🏋️, love music 🎧, and love playing the drums 🥁. Always up for a chat about any of them!</p>
