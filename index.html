@@ -1,187 +1,336 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title>Li Youxing</title>
-    <meta name="description" content="Li Youxing (Youxing Li): reinforcement learning for LLM and multimodal agents, and geometric deep learning. MSc (CUHK, 2026).">
-    <meta name="author" content="Li Youxing">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-    </script>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <style>
-      .page__content ul li { margin-bottom: 0.2em; }
-      .note { color: #6f777d; font-size: 0.85em; }
-      .hl { color: #c0392b; font-weight: 700; font-size: 0.9em; }
-      .pub { border-bottom: 1px #efefef solid; padding: 1.4em 0; }
-      .pub p { margin-bottom: 0.4em; }
-      .pub ul { margin-top: 0.4em; margin-bottom: 0.4em; }
-      .pub-title { font-size: 1.02em; }
-      .venue { display: inline-block; background: #00369f; color: #fff; font-size: 0.72em; padding: 0.05em 0.6em; margin-right: 0.6em; vertical-align: 0.1em; }
-      .pub-fig summary { cursor: pointer; color: #00369f; font-size: 0.85em; font-weight: 600; user-select: none; }
-      .pub-fig summary:hover { text-decoration: underline; }
-      .pub-fig .hide, .pub-fig[open] .show { display: none; }
-      .pub-fig[open] .hide { display: inline; }
-      .pub-fig img { display: block; width: 100%; max-width: 720px; margin-top: 0.8em; box-shadow: 3px 3px 6px #888; background: #fff; }
-      .hobbies { margin-top: 2.5em; }
-      .site-credit { color: #9aa0a6; font-size: 0.75em; margin-top: 3em; }
-    </style>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Li Youxing</title>
+  <meta name="author" content="Li Youxing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Li Youxing (Youxing Li): LLMs, vision-language models and agentic RL, and geometric deep learning. MSc (CUHK, 2026), Research Assistant at the MHUG lab, University of Trento.">
+  <link rel="icon" type="image/jpeg" href="images/profile.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary: #0065C0; --accent: #f09228; --text: #000; --muted: #666; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #fff; color: var(--text); font-family: 'Lato', Verdana, Helvetica, sans-serif; font-size: 16px; line-height: 1.7; }
+    a { color: var(--primary); text-decoration: none; transition: color .2s ease; }
+    a:hover { color: var(--accent); }
 
-  <body>
-    <div class="masthead">
-      <div class="masthead__inner-wrap">
-        <div class="masthead__menu">
-          <nav id="site-nav" class="greedy-nav">
-            <button><div class="navicon"></div></button>
-            <ul class="visible-links">
-              <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="#about-me">Homepage</a></li>
-              <li class="masthead__menu-item"><a href="#education">Education</a></li>
-              <li class="masthead__menu-item"><a href="#experience">Experience</a></li>
-              <li class="masthead__menu-item"><a href="#publications">Publications</a></li>
-            </ul>
-            <ul class="hidden-links hidden"></ul>
-          </nav>
+    #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 9999; background: linear-gradient(90deg, #6C63FF, #185FA5, #1D9E75); border-radius: 0 2px 2px 0; }
+
+    .wrap { max-width: 840px; margin: 0 auto; padding: 0 20px; }
+    nav.top { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 18px 0 8px; }
+    nav.top a { color: #7a7c82; font-size: 14px; padding: 6px 12px; border-radius: 4px; }
+    nav.top a:hover { color: #555; background: rgba(240,146,40,.08); }
+
+    h2.section { font-size: 22px; font-weight: 700; color: var(--primary); margin: 2.2em 0 .8em; scroll-margin-top: 20px; }
+
+    /* Hero */
+    .hero { overflow: hidden; }
+    .hero .name { text-align: center; margin: 18px 0 4px; }
+    .hero .name h1 { font-size: 36px; font-weight: 700; margin: 0; line-height: 1.3; }
+    .hero .name .sub { font-size: 15px; color: #797878; }
+    .profile-photo { float: right; width: 200px; height: 200px; border-radius: 50%; margin: 70px 0 10px 24px; border: 2px solid #f5f5f5; box-shadow: 0 4px 8px rgba(0,0,0,.1); object-fit: cover; transition: transform .3s ease, box-shadow .3s ease; }
+    .profile-photo:hover { transform: scale(1.02); box-shadow: 0 6px 16px rgba(0,0,0,.15); }
+    .bio { font-size: 15.5px; line-height: 1.8; color: #555; }
+    .bio p { margin: 0 0 1rem; }
+    .bio a { color: #185FA5; border-bottom: 1px solid #B5D4F4; }
+    .bio a:hover { border-color: #185FA5; }
+    .bio b { color: #333; }
+    .cta { background: #E1F5EE; border-radius: 10px; padding: .7rem 1rem; color: #0F6E56; font-size: 14px; display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; }
+    .cta .dot { width: 7px; height: 7px; border-radius: 50%; background: #1D9E75; flex-shrink: 0; }
+    .links { text-align: center; font-size: 14px; color: #888; margin: 0; }
+    .links a { color: #555; border-bottom: 1px solid #ddd; padding: 0 2px; margin: 0 4px; }
+    .links a:hover { color: #185FA5; border-color: #B5D4F4; }
+
+    /* News */
+    .news { list-style: none; padding: 0; margin: 0; }
+    .news li { display: flex; gap: 16px; padding: 9px 0; border-bottom: .5px solid #eee; font-size: 14px; line-height: 1.6; color: #444; }
+    .news .date { color: #999; min-width: 80px; font-size: 13px; padding-top: 1px; }
+    .tag { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-right: 6px; white-space: nowrap; }
+    .tag.purple { background: #EEEDFE; color: #3C3489; }
+    .tag.blue { background: #E6F1FB; color: #185FA5; }
+    .tag.green { background: #E1F5EE; color: #0F6E56; }
+    .tag.orange { background: #FAEEDA; color: #854F0B; }
+    .news a { color: #185FA5; border-bottom: 1px solid #B5D4F4; }
+
+    /* Publication cards */
+    .legend { font-size: 13px; color: #999; margin: -6px 0 6px; }
+    .pubs { list-style: none; padding: 0; margin: 0; }
+    .pc { display: flex; gap: 22px; align-items: flex-start; padding: 24px 0; border-top: 1px solid #ececec; }
+    .pubs li:first-child .pc { border-top: none; padding-top: 6px; }
+    .pt { width: 320px; min-width: 320px; height: 180px; border-radius: 7px; overflow: hidden; border: 1px solid #e4e4e4; background: #fff; flex-shrink: 0; position: relative; padding: 0; cursor: zoom-in; display: block; font: inherit; }
+    .pt img { width: 100%; height: 100%; object-fit: contain; padding: 8px; display: block; }
+    .pt:hover { border-color: #185FA5; }
+    .pt:focus-visible { outline: 3px solid #185FA5; outline-offset: 4px; }
+    .pt .hint { position: absolute; right: 8px; bottom: 8px; padding: 3px 8px; border-radius: 4px; background: rgba(22,34,50,.8); color: #fff; font-size: 12px; line-height: 1.5; opacity: 0; pointer-events: none; transition: opacity .2s; }
+    .pt:hover .hint, .pt:focus-visible .hint { opacity: 1; }
+    .pb { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+    .vr { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .vt { font-size: 14px; font-weight: 700; letter-spacing: .04em; padding: 2px 9px; border-radius: 4px; background: #EEEDFE; color: #534AB7; }
+    .vn { font-size: 14px; font-weight: 500; color: #666; }
+    .vd { font-size: 14px; color: #ccc; }
+    .vy { font-size: 14px; color: #999; }
+    .bg { font-size: 14px; font-weight: 700; color: #e65100; }
+    .ti { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 0; line-height: 1.5; }
+    .au { font-size: 14.5px; color: #666; margin: 0; line-height: 1.55; }
+    .au strong { color: #c0392b; font-weight: 700; }
+    .ab { font-size: 13.5px; color: #888; margin: 0; line-height: 1.55; }
+    .lk { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; font-size: 13px; }
+    .lk a { color: #1772d0; border-bottom: 1px solid transparent; }
+    .lk a:hover { border-bottom-color: #1772d0; }
+    .lk span { color: #ddd; }
+
+    /* Image preview dialog */
+    body.preview-open { overflow: hidden; }
+    dialog.preview { width: min(1100px, calc(100vw - 40px)); max-width: none; max-height: calc(100vh - 40px); margin: auto; padding: 18px; border: 0; border-radius: 12px; background: #fff; box-shadow: 0 24px 90px rgba(0,0,0,.25); }
+    dialog.preview::backdrop { background: rgba(15,23,42,.78); }
+    .preview-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 14px; }
+    .preview-head h3 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.5; }
+    .preview-head button { flex-shrink: 0; min-width: 64px; min-height: 40px; padding: 8px 14px; border: 1px solid #ddd; border-radius: 7px; background: #fff; color: #444; font: 14px 'Lato', sans-serif; cursor: pointer; }
+    .preview-head button:hover { background: #f3f5f8; }
+    .preview-body { display: flex; justify-content: center; }
+    .preview-body img { display: block; max-width: 100%; max-height: calc(100vh - 170px); object-fit: contain; }
+
+    /* Education */
+    .edu { display: flex; gap: 14px; align-items: flex-start; margin: 12px 0; }
+    .edu img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; margin-top: 2px; }
+    .edu .main { flex: 1; min-width: 0; }
+    .edu .side { text-align: right; white-space: nowrap; }
+    .edu .muted { color: var(--muted); }
+
+    /* Experience */
+    .exp { list-style: disc; padding-left: 20px; margin: 0; }
+    .exp li { padding: 6px 0; }
+    .exp .row { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+    .exp .org { font-weight: 700; }
+    .exp i { color: #999; white-space: nowrap; }
+    .exp .desc { color: var(--muted); font-size: 15px; }
+
+    .hobbies { color: #555; font-size: 15px; margin-top: 2.4em; }
+    footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #888; padding: 28px 0 36px; margin-top: 1.5em; border-top: 1px solid #f0f0f0; }
+
+    @media (max-width: 700px) {
+      .profile-photo { float: none; display: block; margin: 16px auto; width: 150px; height: 150px; }
+      .hero .name h1 { font-size: 28px; }
+      .pc { flex-direction: column; gap: 12px; }
+      .pt { width: 100%; min-width: 0; height: auto; aspect-ratio: 16 / 9; }
+      .edu { flex-wrap: wrap; }
+      .edu .side { text-align: left; white-space: normal; width: 100%; padding-left: 62px; }
+      .exp .row { flex-direction: column; gap: 0; }
+      .news li { flex-direction: column; gap: 2px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="scroll-progress"></div>
+  <div class="wrap">
+
+    <nav class="top" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+    </nav>
+
+    <main id="home">
+      <section class="hero">
+        <div class="name">
+          <h1>Li Youxing</h1>
+          <span class="sub">MSc @ CUHK &nbsp;|&nbsp; Email = rickliyouxing [at] link.cuhk.edu.hk</span>
         </div>
+        <img class="profile-photo" src="images/profile.jpg" alt="Profile photo of Li Youxing" width="200" height="200">
+        <div class="bio">
+          <p>Hi! I received my MSc in Advanced Statistics and Data Science from <a href="https://www.cuhk.edu.hk/">The Chinese University of Hong Kong</a> in 2026. Before that, I received my BSc in Data Science from <a href="https://www.xjtu.edu.cn/">Xi'an Jiaotong University</a>. I am a Research Assistant in the <a href="https://mhug.disi.unitn.it/">MHUG lab</a> at the University of Trento, supervised by <a href="https://disi.unitn.it/~sebe/">Prof. Nicu Sebe</a> and <a href="https://mhug.disi.unitn.it/people/67">Ziheng Chen</a>.</p>
+          <p><b>Research:</b> My research focuses on <b>LLMs, vision-language models and agentic RL</b>: models that keep improving from experience they generate themselves, and multimodal agents that act over many steps. I also work on <b>geometric deep learning</b> on SPD and correlation matrices.</p>
+          <div class="cta"><div class="dot"></div><span>Applying for <b>PhD positions (Fall 2027)</b> and <b>research internships</b>. Feel free to reach out!</span></div>
+          <p class="links">
+            <a href="mailto:rickliyouxing@link.cuhk.edu.hk">Email</a> /
+            <a href="https://github.com/Lei-Yausing">Github</a>
+          </p>
+        </div>
+      </section>
+
+      <h2 class="section" id="news">News</h2>
+      <ul class="news">
+        <li><span class="date">Oct 2026</span><span><span class="tag purple">arXiv</span>Our technical report <a href="https://arxiv.org/abs/2610.38568">A-RSI</a> is on arXiv and ranked #3 on Hugging Face Daily Papers!</span></li>
+        <li><span class="date">Oct 2026</span><span><span class="tag purple">arXiv</span>My sole-author preprint <a href="https://arxiv.org/abs/2610.07984">Decide Before You Look</a> is now available on arXiv.</span></li>
+        <li><span class="date">Jul 2026</span><span><span class="tag green">MSc</span>Graduated from The Chinese University of Hong Kong with an MSc in Advanced Statistics and Data Science.</span></li>
+        <li><span class="date">Jun 2026</span><span><span class="tag orange">Industry</span>Joined Xiaomi as project lead of A-RSI.</span></li>
+        <li><span class="date">Apr 2026</span><span><span class="tag purple">arXiv</span>Our survey <a href="https://arxiv.org/abs/2604.02029">The Latent Space</a> is now available on arXiv.</span></li>
+        <li><span class="date">Feb 2025</span><span><span class="tag blue">Research</span>Joined the MHUG lab at the University of Trento as a Research Assistant.</span></li>
+      </ul>
+
+      <h2 class="section" id="publications">Selected Publications</h2>
+      <p class="legend">* equal contribution &nbsp;&nbsp; &sect; project lead &nbsp;&nbsp; &dagger; corresponding author</p>
+      <ul class="pubs">
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/arsi_overview.webp" data-title="A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement"><img src="images/arsi_overview.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">Tech Report</span><span class="vd">&middot;</span><span class="vy">2026</span><span class="bg">&#9733; #3 on Hugging Face Daily Papers</span></div>
+            <p class="ti">A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</p>
+            <p class="au">Yu Liu*, <strong>Youxing Li*&sect;</strong>, Yuedong Tan*, Zhiwei Yang, Zihan Su, Hanqi Feng, Shaojie Zhang, Libin Liao, Zihao Wan, Chenxu Wu, Cong Cao&dagger;, Fangfang Yuan, Yanbing Liu, Ziheng Chen, Pei Fu&dagger;, Radu Timofte, Zongwei Wu, Nicu Sebe, Barnabas Poczos, Jian Luan</p>
+            <p class="ab">Refreshes the training task pool when the model's own training logs show the learning signal has faded. With no external data, it improves Qwen3-VL-8B on all 11 benchmarks (57.77 &rarr; 61.05 on average).</p>
+            <div class="lk"><a href="https://arxiv.org/abs/2610.38568">[Paper]</a><span> / </span><a href="https://seerray-lab.github.io/A-RSI/">[Project]</a><span> / </span><a href="https://huggingface.co/papers/2610.38568">[Hugging Face]</a></div>
+          </div>
+        </div></li>
+
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/fig_seer.webp" data-title="Structural Entropy Guided Capability-Aware Expert Routing"><img src="images/fig_seer.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">Under Review</span><span class="vd">&middot;</span><span class="vy">2026</span></div>
+            <p class="ti">Structural Entropy Guided Capability-Aware Expert Routing</p>
+            <p class="au">Zhiwei Yang*, Yu Liu*, <strong>Youxing Li*</strong>, Yuedong Tan, Haimei Qin, Shaojie Zhang, Lei Jiang, Yanbing Liu, Pei Fu</p>
+            <p class="ab">Routes each query to one LLM from a heterogeneous expert pool, using structural-entropy candidate sets and a GRPO-trained planner and selector. Evaluated on 20 benchmarks.</p>
+          </div>
+        </div></li>
+
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/fig_taebench.webp" data-title="Beyond Task Success: A Tool-Use Agent Efficiency Benchmark"><img src="images/fig_taebench.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">Under Review</span><span class="vd">&middot;</span><span class="vy">2026</span></div>
+            <p class="ti">Beyond Task Success: A Tool-Use Agent Efficiency Benchmark</p>
+            <p class="au">Yu Liu, Yuedong Tan, Zhilin Liu, Zhiwei Yang, Hanqi Feng, Wenxiao Zhang, Zheyuan Deng, Kunyu Peng, Radu Timofte, <strong>Youxing Li</strong>, et al.</p>
+            <p class="ab">191 multimodal long-horizon tasks, each with an evidence graph, scoring 27 frontier models on final correctness together with evidence acquisition.</p>
+          </div>
+        </div></li>
+
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/fig_gcorp_gen.webp" data-title="GCorP: Global Correlation Pooling"><img src="images/fig_gcorp_gen.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">Under Review</span><span class="vd">&middot;</span><span class="vy">2026</span></div>
+            <p class="ti">GCorP: Global Correlation Pooling</p>
+            <p class="au"><strong>Youxing Li</strong>, Zihan Su, Nicu Sebe, Ziheng Chen&dagger;</p>
+            <p class="ab">Pools scale-invariant correlation matrices with flat and hyperbolic heads. Validated on image classification, EEG foundation models, and FD-loss post-training of image generators.</p>
+          </div>
+        </div></li>
+
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/fig_rsw.webp" data-title="Riemannian Sliced-Wasserstein Distances on Correlation Matrices"><img src="images/fig_rsw.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">Under Review</span><span class="vd">&middot;</span><span class="vy">2026</span></div>
+            <p class="ti">Riemannian Sliced-Wasserstein Distances on Correlation Matrices</p>
+            <p class="au"><strong>Youxing Li</strong>, Nicu Sebe, Ziheng Chen&dagger;</p>
+            <p class="ab">Sliced-Wasserstein regularization on full-rank correlation matrices, covering four flat pullback metrics and a hyperbolic branch at O(d<sup>2</sup>) projection cost.</p>
+          </div>
+        </div></li>
+
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/fig_nspd_dem.webp" data-title="A Riemannian Framework for Normalized SPD Matrix Learning"><img src="images/fig_nspd_dem.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">Under Review</span><span class="vd">&middot;</span><span class="vy">2026</span></div>
+            <p class="ti">A Riemannian Framework for Normalized SPD Matrix Learning</p>
+            <p class="au"><strong>Youxing Li</strong>, Ziheng Chen&dagger;</p>
+            <p class="ab">Deformed-Euclidean Metrics on normalized SPD matrices with closed-form Riemannian operators and eigendecomposition-free approximations. Gains in visual recognition, Riemannian classification, and fMRI generation.</p>
+          </div>
+        </div></li>
+
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/fig_pixeltriage.webp" data-title="Decide Before You Look: Learning Which Retrieved Memories Deserve Pixels"><img src="images/fig_pixeltriage.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">arXiv</span><span class="vd">&middot;</span><span class="vy">2026</span></div>
+            <p class="ti">Decide Before You Look: Learning Which Retrieved Memories Deserve Pixels</p>
+            <p class="au"><strong>Youxing Li</strong></p>
+            <p class="ab">Predicts which retrieved image memories are worth sending as pixels before the answering model runs, cutting visual tokens to 11&ndash;23% without accuracy loss on three benchmarks.</p>
+            <div class="lk"><a href="https://arxiv.org/abs/2610.07984">[Paper]</a></div>
+          </div>
+        </div></li>
+
+        <li><div class="pc">
+          <button type="button" class="pt" data-full="images/fig_latent_survey.webp" data-title="The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook"><img src="images/fig_latent_survey.webp" alt="" loading="lazy"><span class="hint">View larger</span></button>
+          <div class="pb">
+            <div class="vr"><span class="vt">arXiv</span><span class="vn">Survey</span><span class="vd">&middot;</span><span class="vy">2026</span></div>
+            <p class="ti">The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</p>
+            <p class="au">Xinlei Yu, Zhangquan Chen, Yongbo He, Tianyu Fu, Guanting Dong, &hellip;, <strong>Youxing Li</strong>, &hellip;, Yu-Gang Jiang, Shuicheng Yan</p>
+            <p class="ab">A survey of latent space in language-based models, organized by foundation, evolution, mechanism, ability, and outlook.</p>
+            <div class="lk"><a href="https://arxiv.org/abs/2604.02029">[Paper]</a></div>
+          </div>
+        </div></li>
+      </ul>
+
+      <h2 class="section" id="education">Education</h2>
+      <div class="edu">
+        <img src="images/logo_cuhk.png" alt="CUHK">
+        <div class="main">M.Sc. in Advanced Statistics and Data Science @ <b>The Chinese University of Hong Kong</b><br><span class="muted">Hong Kong</span></div>
+        <div class="side">Sep. 2025 &ndash; Jul. 2026</div>
       </div>
-    </div>
-
-    <div id="main" role="main">
-      <div class="sidebar sticky">
-        <div itemscope itemtype="http://schema.org/Person" class="profile_box">
-          <div class="author__avatar">
-            <img src="images/profile.jpg" class="author__avatar" alt="Li Youxing">
-          </div>
-          <div class="author__content">
-            <h3 class="author__name">Li Youxing</h3>
-          </div>
-          <div class="author__urls-wrapper">
-            <ul class="author__urls social-icons">
-              <li><div style="white-space: normal; margin-bottom: 1em;">The Chinese University of Hong Kong</div></li>
-              <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Hong Kong</li>
-              <li><a href="mailto:rickliyouxing@link.cuhk.edu.hk"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
-              <li><a href="https://github.com/Lei-Yausing"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="edu">
+        <img src="images/logo_xjtu.png" alt="Xi'an Jiaotong University">
+        <div class="main">B.Sc. in Data Science @ <b>Xi'an Jiaotong University</b><br><span class="muted">Jinhe Center &nbsp;&middot;&nbsp; Xi'an, China</span></div>
+        <div class="side">Sep. 2021 &ndash; Jun. 2025</div>
       </div>
 
-      <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        <div class="page__inner-wrap">
-          <section class="page__content" itemprop="text">
+      <h2 class="section" id="experience">Research Experience</h2>
+      <ul class="exp">
+        <li>
+          <div class="row"><span class="org">Xiaomi</span><i>Jun 2026 &ndash; Present</i></div>
+          <div>Project Lead, A-RSI</div>
+          <div class="desc">Led A-RSI, zero-data multimodal self-improvement with adaptive task refresh, and contributed to LLM expert routing (SEER).</div>
+        </li>
+        <li>
+          <div class="row"><span class="org">University of Trento</span><i>Feb 2025 &ndash; Present</i></div>
+          <div>Research Assistant, MHUG Lab, supervised by Prof. Nicu Sebe and Ziheng Chen</div>
+          <div class="desc">Geometric deep learning on SPD and correlation matrices.</div>
+        </li>
+      </ul>
 
-<span class="anchor" id="about-me"></span>
+      <p class="hobbies">Outside research, I love hitting the gym 🏋️, love music 🎧, and love playing the drums 🥁. Always up for a chat about any of them!</p>
+    </main>
 
-<p>I received my MSc in Advanced Statistics and Data Science from <a href="https://www.cuhk.edu.hk/">The Chinese University of Hong Kong</a> in 2026. Before that, I received my BSc in Data Science from <a href="https://www.xjtu.edu.cn/">Xi'an Jiaotong University</a>. I am a Research Assistant in the <a href="https://mhug.disi.unitn.it/">MHUG lab</a> at the University of Trento, supervised by <a href="https://disi.unitn.it/~sebe/">Prof. Nicu Sebe</a> and <a href="https://mhug.disi.unitn.it/people/67">Ziheng Chen</a>. My research focuses on <strong>LLMs, vision-language models and agentic RL</strong>: models that keep improving from experience they generate themselves, and multimodal agents that act over many steps. I also work on <strong>geometric deep learning</strong> on SPD and correlation matrices.</p>
+    <footer>
+      <span>Last updated: Nov 2026</span>
+      <span>&copy; 2026 Li Youxing</span>
+      <span>Template adapted from <a href="https://yanningdai.github.io/">Yanning Dai</a> and <a href="https://jonbarron.info/">Jon Barron</a>.</span>
+    </footer>
+  </div>
 
-
-<h1 id="education">Education</h1>
-<ul>
-  <li><em>2025.09 &ndash; 2026.07</em>, MSc in Advanced Statistics and Data Science, The Chinese University of Hong Kong.</li>
-  <li><em>2021.09 &ndash; 2025.06</em>, BSc in Data Science, Jinhe Center, Xi'an Jiaotong University.</li>
-</ul>
-
-<h1 id="experience">Research Experience</h1>
-<ul>
-  <li><em>2026.06 &ndash; now</em>, Xiaomi. Project lead of A-RSI.</li>
-  <li><em>2025.02 &ndash; now</em>, University of Trento, supervised by Prof. Nicu Sebe and Ziheng Chen. Geometric deep learning on SPD and correlation matrices.</li>
-</ul>
-
-<h1 id="publications">Publications</h1>
-<p class="note">* equal contribution &nbsp;&nbsp; &sect; project lead &nbsp;&nbsp; &dagger; corresponding author</p>
-
-<div class="pub">
-<p class="pub-title"><span class="venue">Technical Report</span><a href="https://seerray-lab.github.io/A-RSI/">A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</a></p>
-<p>Yu Liu*, <strong>Youxing Li*&sect;</strong>, Yuedong Tan*, Zhiwei Yang, Zihan Su, Hanqi Feng, Shaojie Zhang, Libin Liao, Zihao Wan, Chenxu Wu, Cong Cao&dagger;, Fangfang Yuan, Yanbing Liu, Ziheng Chen, Pei Fu&dagger;, Radu Timofte, Zongwei Wu, Nicu Sebe, Barnabas Poczos, Jian Luan</p>
-<p><a href="https://seerray-lab.github.io/A-RSI/"><strong>Project</strong></a> | <a href="https://arxiv.org/abs/2610.38568"><strong>arXiv</strong></a> | <a href="https://huggingface.co/papers/2610.38568"><strong>Hugging Face</strong></a> &nbsp;<span class="hl">#2 Paper of the Day</span></p>
-<ul>
-  <li>Refreshes the training task pool when the model's own training logs show the learning signal has faded.</li>
-  <li>Generates multimodal tasks from model-written programs with computed answers, requiring no external data.</li>
-  <li>Improves Qwen3-VL-8B on all 11 benchmarks, from 57.77 to 61.05 on average.</li>
-</ul>
-<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/arsi_overview.webp" alt="A-RSI overview" loading="lazy"></details>
-</div>
-
-<div class="pub">
-<p class="pub-title"><span class="venue">Under Review</span><strong>Structural Entropy Guided Capability-Aware Expert Routing</strong></p>
-<p>Zhiwei Yang*, Yu Liu*, <strong>Youxing Li*</strong>, Yuedong Tan, Haimei Qin, Shaojie Zhang, Lei Jiang, Yanbing Liu, Pei Fu</p>
-<ul>
-  <li>Routes each query to one LLM from a heterogeneous expert pool before any expert is called.</li>
-  <li>Builds candidate sets by partitioning a query&ndash;expert outcome graph with structural entropy.</li>
-  <li>Trains a capability planner and a route selector with GRPO; evaluated on 20 benchmarks.</li>
-</ul>
-<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_seer.webp" alt="SEER routing" loading="lazy"></details>
-</div>
-
-<div class="pub">
-<p class="pub-title"><span class="venue">Under Review</span><strong>Beyond Task Success: A Tool-Use Agent Efficiency Benchmark</strong></p>
-<p>Yu Liu, Yuedong Tan, Zhilin Liu, Zhiwei Yang, Hanqi Feng, Wenxiao Zhang, Zheyuan Deng, Kunyu Peng, Radu Timofte, <strong>Youxing Li</strong>, et al.</p>
-<ul>
-  <li>Evaluates tool-use agents on 191 multimodal long-horizon tasks, scoring final correctness together with evidence acquisition.</li>
-  <li>Annotates each task with an evidence graph whose executable predicates recognize evidence across alternative tool sequences.</li>
-  <li>Runs 27 frontier models through one shared harness and tool environment, separating capability, family tool preferences, and execution organization.</li>
-</ul>
-<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_taebench.webp" alt="TAE-Bench: same answer, different efficiency" loading="lazy"></details>
-</div>
-
-<div class="pub">
-<p class="pub-title"><span class="venue">Under Review</span><strong>GCorP: Global Correlation Pooling</strong></p>
-<p><strong>Youxing Li</strong>, Zihan Su, Nicu Sebe, Ziheng Chen&dagger;</p>
-<ul>
-  <li>Pools scale-invariant correlation matrices with flat and hyperbolic geometry-specific heads.</li>
-  <li>Shows that flat correlation MLR trains exactly with Euclidean SGD, without tangent-space trivialization.</li>
-  <li>Validates on image classification, EEG foundation models, and FD-loss post-training of image generators.</li>
-</ul>
-<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_gcorp_gen.webp" alt="GCorP in generative post-training" loading="lazy"></details>
-</div>
-
-<div class="pub">
-<p class="pub-title"><span class="venue">Under Review</span><strong>Riemannian Sliced-Wasserstein Distances on Correlation Matrices</strong></p>
-<p><strong>Youxing Li</strong>, Nicu Sebe, Ziheng Chen&dagger;</p>
-<ul>
-  <li>Introduces sliced-Wasserstein regularization on full-rank correlation matrices (CorSW).</li>
-  <li>Covers four flat pullback metrics and a hyperbolic PHCM branch with Busemann and geodesic slices.</li>
-  <li>Improves downstream performance across datasets and architectures at O(d<sup>2</sup>) projection cost.</li>
-</ul>
-<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_rsw.webp" alt="CorSW" loading="lazy"></details>
-</div>
-
-<div class="pub">
-<p class="pub-title"><span class="venue">arXiv 2026</span><a href="https://arxiv.org/abs/2610.07984">Decide Before You Look: Learning Which Retrieved Memories Deserve Pixels</a></p>
-<p><strong>Youxing Li</strong></p>
-<p><a href="https://arxiv.org/abs/2610.07984"><strong>arXiv</strong></a></p>
-<ul>
-  <li>Predicts which retrieved image memories are worth sending as pixels before the answering model runs.</li>
-  <li>Trains a small triage model on synthetic episodes labeled by a frozen 27B model.</li>
-  <li>Cuts visual tokens to 11&ndash;23% without accuracy loss on three benchmarks; transfers to a 397B answering model.</li>
-</ul>
-<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_pixeltriage.webp" alt="PixelTriage example and accuracy-cost results" loading="lazy"></details>
-</div>
-
-<div class="pub">
-<p class="pub-title"><span class="venue">Survey</span><a href="https://arxiv.org/abs/2604.02029">The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</a></p>
-<p>Xinlei Yu, Zhangquan Chen, Yongbo He, Tianyu Fu, Guanting Dong, &hellip;, <strong>Youxing Li</strong>, &hellip;, Yu-Gang Jiang, Shuicheng Yan</p>
-<p><a href="https://arxiv.org/abs/2604.02029"><strong>arXiv</strong></a></p>
-<ul>
-  <li>Surveys latent space as a native substrate for language-based models, beyond explicit token-level generation.</li>
-  <li>Organizes the field into five perspectives: Foundation, Evolution, Mechanism, Ability, and Outlook.</li>
-  <li>Reviews four mechanisms (architecture, representation, computation, optimization) and abilities from reasoning and planning to memory, collaboration, and embodiment.</li>
-</ul>
-<details class="pub-fig"><summary><span class="show">Show figure</span><span class="hide">Hide figure</span></summary><img src="images/fig_latent_survey.webp" alt="Outline of the latent space survey" loading="lazy" style="max-width: 480px;"></details>
-</div>
-
-<p class="hobbies">Outside research, I love hitting the gym 🏋️, love music 🎧, and love playing the drums 🥁. Always up for a chat about any of them!</p>
-
-<p class="site-credit">Built on <a href="https://github.com/RayeRen/acad-homepage.github.io">AcadHomepage</a>.</p>
-
-          </section>
-        </div>
-      </article>
+  <dialog id="preview" class="preview" aria-labelledby="preview-title">
+    <div class="preview-head">
+      <h3 id="preview-title"></h3>
+      <button type="button" class="preview-close" aria-label="Close image preview">Close</button>
     </div>
+    <div class="preview-body"><img id="preview-img" alt=""></div>
+  </dialog>
 
-    <script src="assets/js/main.min.js"></script>
-  </body>
+  <script>
+    window.addEventListener('scroll', function () {
+      var top = window.scrollY || document.documentElement.scrollTop;
+      var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('scroll-progress').style.width = (h > 0 ? top / h * 100 : 0) + '%';
+    });
+    (function () {
+      var dialog = document.getElementById('preview');
+      var img = document.getElementById('preview-img');
+      var title = document.getElementById('preview-title');
+      var trigger = null;
+      document.querySelectorAll('button.pt').forEach(function (btn) {
+        btn.setAttribute('aria-label', 'View larger image: ' + btn.dataset.title);
+        btn.addEventListener('click', function () {
+          trigger = btn;
+          title.textContent = btn.dataset.title;
+          img.alt = btn.dataset.title;
+          img.src = btn.dataset.full;
+          document.body.classList.add('preview-open');
+          dialog.showModal();
+        });
+      });
+      dialog.querySelector('.preview-close').addEventListener('click', function () { dialog.close(); });
+      dialog.addEventListener('click', function (e) {
+        if (e.target !== dialog) return;
+        var r = dialog.getBoundingClientRect();
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();
+      });
+      dialog.addEventListener('close', function () {
+        document.body.classList.remove('preview-open');
+        img.removeAttribute('src');
+        if (trigger) trigger.focus({ preventScroll: true });
+      });
+    })();
+  </script>
+</body>
 </html>
